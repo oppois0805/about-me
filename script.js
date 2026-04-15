@@ -390,8 +390,8 @@ const navObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.35,
-    rootMargin: '-15% 0px -40% 0px'
+    threshold: 0.05,
+    rootMargin: '-20% 0px -60% 0px'
   }
 );
 
