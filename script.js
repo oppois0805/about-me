@@ -1,3 +1,58 @@
+/* ── Matrix Rain Background ── */
+(function initMatrixRain() {
+  const canvas = document.getElementById('matrix-rain');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]=/\\';
+  const charArr = chars.split('');
+  const fontSize = 14;
+  let columns;
+  let drops;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = Math.floor(canvas.width / fontSize);
+    drops = Array.from({ length: columns }, () => Math.random() * -100 | 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(4, 19, 41, 0.15)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < columns; i++) {
+      const char = charArr[Math.random() * charArr.length | 0];
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+
+      // head glow
+      if (Math.random() > 0.6) {
+        ctx.fillStyle = 'rgba(95, 251, 214, 0.9)';
+        ctx.shadowColor = '#5ffbd6';
+        ctx.shadowBlur = 8;
+      } else {
+        ctx.fillStyle = 'rgba(56, 222, 187, 0.45)';
+        ctx.shadowColor = 'transparent';
+        ctx.shadowBlur = 0;
+      }
+
+      ctx.font = fontSize + 'px JetBrains Mono, monospace';
+      ctx.fillText(char, x, y);
+      ctx.shadowBlur = 0;
+
+      if (y > canvas.height && Math.random() > 0.98) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
