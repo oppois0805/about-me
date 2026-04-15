@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LEO CHEN | 前端架構師作品集</title>
+    <title>DEVIN CHEN | 前端架構師作品集</title>
+    <meta name="title-i18n-zh" content="DEVIN CHEN | 前端架構師作品集" />
+    <meta name="title-i18n-en" content="DEVIN CHEN | Frontend Architect Portfolio" />
     <meta
       name="description"
-      content="Leo Chen 的前端工程師作品集，聚焦 IoT 智慧建築、Angular 架構、AI Agent Pipeline 與原生工程設計。"
+      content="Devin Chen 的前端工程師作品集，聚焦 IoT 智慧建築、Angular 架構、AI Agent Pipeline 與原生工程設計。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,10 +24,10 @@
       <div class="ambient ambient-two"></div>
 
       <header class="site-header glass-panel">
-        <a class="brand" href="#top" aria-label="回到頂部">
-          <span class="brand-mark">LC</span>
+        <a class="brand" href="#top" aria-label="回到頂部" data-i18n-aria="aria.top">
+          <img class="brand-avatar" src="./assets/個人頭像.jpg" alt="Devin Chen" width="36" height="36" />
           <span class="brand-text">
-            <strong>LEO_CHEN</strong>
+            <strong>DEVIN_CHEN</strong>
             <small>System Operational</small>
           </span>
         </a>
@@ -34,7 +36,7 @@
           Menu
         </button>
 
-        <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <nav id="site-nav" class="site-nav" aria-label="主要導覽" data-i18n-aria="aria.nav">
           <a href="#about" data-i18n="nav.about">關於我</a>
           <a href="#experience" data-i18n="nav.exp">經歷</a>
           <a href="#products" data-i18n="nav.prod">實績</a>
@@ -42,17 +44,19 @@
           <a href="#contact" data-i18n="nav.contact">聯絡</a>
         </nav>
 
-        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="切換語言">
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="切換語言" data-i18n-aria="aria.lang">
           <span class="lang-toggle-label">EN</span>
         </button>
       </header>
 
       <main id="top">
         <section class="hero section-shell" id="about">
+          <div class="hero-bg-effects">
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+            <div class="hero-grid-overlay"></div>
+          </div>
           <div class="hero-copy reveal">
-            <div class="hero-avatar">
-              <img src="./assets/個人頭像.jpg" alt="Leo Chen" width="80" height="80" />
-            </div>
             <p class="eyebrow" data-i18n="hero.eyebrow">精密介面架構師</p>
             <h1>
               <span data-i18n="hero.title">資深 IoT 前端架構師</span>
@@ -68,40 +72,34 @@
               <a class="button button-secondary" href="#contact" data-i18n="hero.cta2">開始聯絡</a>
             </div>
 
-            <dl class="hero-metrics" aria-label="關鍵數據">
-              <div class="metric-card">
-                <dt data-i18n="metric.years">年資</dt>
+            <dl class="hero-metrics" aria-label="關鍵數據" data-i18n-aria="aria.metrics">
+              <div class="metric-card metric-glow">
+                <dt data-i18n="metric.years"><span class="metric-icon">🗓</span>年資</dt>
                 <dd><span class="counter" data-target="10">0</span>+</dd>
               </div>
-              <div class="metric-card">
-                <dt data-i18n="metric.modules">交付模組</dt>
+              <div class="metric-card metric-glow">
+                <dt data-i18n="metric.modules"><span class="metric-icon">📦</span>交付模組</dt>
                 <dd><span class="counter" data-target="30">0</span>+</dd>
               </div>
-              <div class="metric-card">
-                <dt data-i18n="metric.components">共用元件</dt>
+              <div class="metric-card metric-glow">
+                <dt data-i18n="metric.components"><span class="metric-icon">🧩</span>共用元件</dt>
                 <dd><span class="counter" data-target="13">0</span>+</dd>
               </div>
-              <div class="metric-card">
-                <dt data-i18n="metric.mcp">MCP 整合</dt>
+              <div class="metric-card metric-glow">
+                <dt data-i18n="metric.mcp"><span class="metric-icon">🔗</span>MCP 整合</dt>
                 <dd><span class="counter" data-target="4">0</span></dd>
               </div>
             </dl>
           </div>
 
-          <aside class="hero-console reveal" aria-label="系統啟動資訊">
+          <aside class="hero-console reveal" aria-label="系統啟動資訊" data-i18n-aria="aria.console">
             <div class="console-head">
               <span></span>
               <span></span>
               <span></span>
             </div>
-            <div class="console-body">
-              <p>$ system init --profile "Leo Chen"</p>
-              <ul>
-                <li>[OK] Angular 21 Architecture</li>
-                <li>[OK] IoT Real-time Stream Engine</li>
-                <li>[OK] AI-Agent Pipeline Integration</li>
-              </ul>
-              <p class="console-prompt">READY: Input Command _</p>
+            <div class="console-body" id="console-typewriter">
+              <p class="console-prompt">READY: Input Command <span class="cursor-blink">_</span></p>
             </div>
 
             <div class="status-stack">
@@ -123,7 +121,7 @@
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="exp.eyebrow">系統演進</p>
             <h2 data-i18n="exp.title">經歷與職業</h2>
-            <p>
+            <p data-i18n="exp.desc">
               從政府資訊系統、前端工程化、IoT 即時平台，到現代 Angular 與 AI workflow，持續把技術棧轉化為穩定可交付的產品能力。
             </p>
           </div>
@@ -135,8 +133,8 @@
                 <p class="timeline-period">2014 - 2016</p>
               </div>
               <div class="timeline-card">
-                <h3>政府專案全端開發</h3>
-                <p>
+                <h3 data-i18n="exp.p1.title">政府專案全端開發</h3>
+                <p data-i18n="exp.p1.desc">
                   深耕 ASP.NET 與 MSSQL 架構，參與政府級資訊系統建置，建立穩定、合規且可維護的資料管理基礎。
                 </p>
                 <ul class="chip-list">
@@ -153,8 +151,8 @@
                 <p class="timeline-period">2016 - 2018</p>
               </div>
               <div class="timeline-card">
-                <h3>前端技術轉型</h3>
-                <p>
+                <h3 data-i18n="exp.p2.title">前端技術轉型</h3>
+                <p data-i18n="exp.p2.desc">
                   轉向前端工程化，導入 SCSS、Vue.js 與 Gulp 自動化流程，從切版走向可維護的前端系統設計。
                 </p>
                 <ul class="chip-list">
@@ -171,8 +169,8 @@
                 <p class="timeline-period">2018 - 2023</p>
               </div>
               <div class="timeline-card">
-                <h3>IoT 產業深耕</h3>
-                <p>
+                <h3 data-i18n="exp.p3.title">IoT 產業深耕</h3>
+                <p data-i18n="exp.p3.desc">
                   以 Angular 8 打造 IWA2 BMS 智慧建築管理系統，跨 20+ 功能模組，整合 MQTT、WebSocket 與多種視覺化引擎，支撐大規模硬體連動與監控場景。
                 </p>
                 <ul class="chip-list">
@@ -191,8 +189,8 @@
                 <p class="timeline-period">2024 - Present</p>
               </div>
               <div class="timeline-card">
-                <h3>現代化架構與 AI</h3>
-                <p>
+                <h3 data-i18n="exp.p4.title">現代化架構與 AI</h3>
+                <p data-i18n="exp.p4.desc">
                   擁抱 Angular 21、Signals、Standalone Components 與 AI Agent Pipeline，將 Prompt Engineering、MCP 與自修復流程納入開發治理。
                 </p>
                 <ul class="chip-list">
@@ -210,49 +208,50 @@
           <div class="section-heading reveal section-heading-offset">
             <p class="eyebrow" data-i18n="prod.eyebrow">核心系統</p>
             <h2 data-i18n="prod.title">專案實績</h2>
-            <p>
+            <p data-i18n="prod.desc">
               核心能力不在單一頁面，而在於把共用元件、業務模組、設計規格與 AI 工程流程整合成可長期演進的平台。
             </p>
           </div>
 
           <div class="ecosystem-banner reveal">
-            <p class="ecosystem-label">IWA 生態系 — 三個專案協同運作</p>
-            <p class="ecosystem-desc">
+            <p class="ecosystem-label" data-i18n="eco.label">IWA 生態系 — 三個專案協同運作</p>
+            <p class="ecosystem-desc" data-i18n="eco.desc">
               DDC 裝置管理平台是業務交付的主線，iwa-web-library 提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。
             </p>
-            <div class="ecosystem-triangle">
-              <div class="ecosystem-triangle-top">
+            <div class="ecosystem-triangle" id="eco-triangle">
+              <svg class="eco-svg" id="eco-svg"></svg>
+              <div class="eco-node eco-node-harness" data-eco="harness">
                 <span class="ecosystem-node">frontEnd-harness</span>
+                <span class="eco-role" data-i18n="eco.role.harness">AI 驅動平台</span>
               </div>
-              <div class="ecosystem-triangle-arrows">
-                <span class="ecosystem-arrow">⇅</span>
-                <span class="ecosystem-arrow">⇅</span>
+              <div class="eco-node eco-node-ddc" data-eco="ddc">
+                <span class="ecosystem-node ecosystem-node-main" data-i18n="eco.node.ddc">DDC 裝置管理平台</span>
+                <span class="eco-role" data-i18n="eco.role.ddc">業務主線</span>
               </div>
-              <div class="ecosystem-triangle-bottom">
-                <span class="ecosystem-node ecosystem-node-main">DDC 裝置管理平台</span>
-                <span class="ecosystem-arrow">⇄</span>
+              <div class="eco-node eco-node-lib" data-eco="lib">
                 <span class="ecosystem-node">iwa-web-library</span>
+                <span class="eco-role" data-i18n="eco.role.lib">共用基底</span>
               </div>
             </div>
           </div>
 
           <div class="project-layout">
             <article class="project-card reveal project-card-spotlight" id="proj-ddc">
-              <p class="status-label">主力產品線</p>
-              <h3>IWA DDC 裝置管理平台</h3>
+              <p class="status-label" data-i18n="proj.ddc.status">主力產品線</p>
+              <h3 data-i18n="proj.ddc.title">IWA DDC 裝置管理平台</h3>
               <div class="project-screenshot">
-                <img src="./assets/ddc.png" alt="DDC 裝置管理平台 — 排程行事曆" loading="lazy" />
+                <img src="./assets/ddc.png" alt="DDC 裝置管理平台 — 排程行事曆" data-i18n-alt="proj.ddc.alt" loading="lazy" />
               </div>
-              <p class="project-lead">
+              <p class="project-lead" data-i18n="proj.ddc.lead">
                 針對分散式 IoT 硬體進行遠端配置、監控與 AI 自動化邏輯編排。設計 13 個功能子專案，建立四層認證架構與 15+ 驗證器。
               </p>
               <ul class="project-points">
-                <li>13 個功能子專案獨立規劃，便於模組化交付與維護。</li>
-                <li>建立四層認證架構，整合 JWT 自動刷新與路由守衛。</li>
-                <li>以 Signals + RxJS + Strict Mode 控制狀態一致性。</li>
+                <li data-i18n="proj.ddc.p1">13 個功能子專案獨立規劃，便於模組化交付與維護。</li>
+                <li data-i18n="proj.ddc.p2">建立四層認證架構，整合 JWT 自動刷新與路由守衛。</li>
+                <li data-i18n="proj.ddc.p3">以 Signals + RxJS + Strict Mode 控制狀態一致性。</li>
               </ul>
               <div class="tag-group">
-                <p class="tag-group-label">使用技術</p>
+                <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                 <div class="tag-list">
                   <span class="tag">Angular 21</span>
                   <span class="tag">TypeScript Strict</span>
@@ -265,7 +264,7 @@
                 </div>
               </div>
               <div class="tag-group">
-                <p class="tag-group-label">關聯專案</p>
+                <p class="tag-group-label" data-i18n="tag.related">關聯專案</p>
                 <div class="tag-list">
                   <a class="tag tag-link" href="#proj-lib">iwa-web-library</a>
                   <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
@@ -275,18 +274,21 @@
 
             <div class="project-stack">
               <article class="project-card reveal project-card-secondary" id="proj-lib">
-                <p class="status-label">共用基底</p>
-                <h3>iwa-web-library 共用元件庫</h3>
-                <p class="project-lead">
+                <p class="status-label" data-i18n="proj.lib.status">共用基底</p>
+                <h3 data-i18n="proj.lib.title">iwa-web-library 共用元件庫</h3>
+                <div class="project-screenshot">
+                  <img src="./assets/library.png" alt="iwa-web-library 共用元件庫" data-i18n-alt="proj.lib.alt" loading="lazy" />
+                </div>
+                <p class="project-lead" data-i18n="proj.lib.lead">
                   建立企業級共用元件庫，含 13 個 @iwa/* 元件、雙軌主題系統與視覺回歸測試流程。
                 </p>
                 <ul class="project-points">
-                  <li>統一後台視覺與互動基礎，減少跨專案重複開發。</li>
-                  <li>以 SCSS + Tailwind 雙軌系統管理設計 token。</li>
-                  <li>Storybook + Chromatic 持續驗證元件外觀一致性。</li>
+                  <li data-i18n="proj.lib.p1">統一後台視覺與互動基礎，減少跨專案重複開發。</li>
+                  <li data-i18n="proj.lib.p2">以 SCSS + Tailwind 雙軌系統管理設計 token。</li>
+                  <li data-i18n="proj.lib.p3">Storybook + Chromatic 持續驗證元件外觀一致性。</li>
                 </ul>
                 <div class="tag-group">
-                  <p class="tag-group-label">使用技術</p>
+                  <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                   <div class="tag-list">
                     <span class="tag">Angular 21</span>
                     <span class="tag">PrimeNG 21</span>
@@ -299,7 +301,7 @@
                   </div>
                 </div>
                 <div class="tag-group">
-                  <p class="tag-group-label">供給專案</p>
+                  <p class="tag-group-label" data-i18n="tag.supply">供給專案</p>
                   <div class="tag-list">
                     <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
                     <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
@@ -308,18 +310,18 @@
               </article>
 
               <article class="project-card reveal project-card-secondary" id="proj-harness">
-                <p class="status-label">AI 工程平台</p>
-                <h3>frontEnd-harness 自動化平台</h3>
-                <p class="project-lead">
+                <p class="status-label" data-i18n="proj.harness.status">AI 工程平台</p>
+                <h3 data-i18n="proj.harness.title">frontEnd-harness 自動化平台</h3>
+                <p class="project-lead" data-i18n="proj.harness.lead">
                   以 Analysis → Builder → QA 三階段 Pipeline 串接多組 MCP，將需求分析、程式碼生成與品質驗證自動化。
                 </p>
                 <ul class="project-points">
-                  <li>三階段流程支援 Full / Layout / Spec / Analysis 四種模式。</li>
-                  <li>單一源碼輸出 Copilot / Claude / Gemini 多平台格式。</li>
-                  <li>QA 修復閉環最多 2 次迭代，減少人工介入。</li>
+                  <li data-i18n="proj.harness.p1">三階段流程支援 Full / Layout / Spec / Analysis 四種模式。</li>
+                  <li data-i18n="proj.harness.p2">單一源碼輸出 Copilot / Claude / Gemini 多平台格式。</li>
+                  <li data-i18n="proj.harness.p3">QA 修復閉環最多 2 次迭代，減少人工介入。</li>
                 </ul>
                 <div class="tag-group">
-                  <p class="tag-group-label">使用技術</p>
+                  <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                   <div class="tag-list">
                     <span class="tag">Prompt Engineering</span>
                     <span class="tag">Multi-Agent Pipeline</span>
@@ -331,7 +333,7 @@
                   </div>
                 </div>
                 <div class="tag-group">
-                  <p class="tag-group-label">驅動專案</p>
+                  <p class="tag-group-label" data-i18n="tag.drives">驅動專案</p>
                   <div class="tag-list">
                     <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
                     <a class="tag tag-link" href="#proj-lib">iwa-web-library</a>
@@ -341,21 +343,21 @@
             </div>
 
             <article class="project-card reveal project-card-foundation">
-              <p class="status-label">前代大型系統</p>
-              <h3>IWA2 BMS 智慧建築管理系統</h3>
+              <p class="status-label" data-i18n="proj.bms.status">前代大型系統</p>
+              <h3 data-i18n="proj.bms.title">IWA2 BMS 智慧建築管理系統</h3>
               <div class="project-screenshot">
-                <img src="./assets/前代系統.png" alt="IWA2 BMS — 空壓主機流程圖" loading="lazy" />
+                <img src="./assets/前代系統.png" alt="IWA2 BMS — 空壓主機流程圖" data-i18n-alt="proj.bms.alt" loading="lazy" />
               </div>
-              <p class="project-lead">
+              <p class="project-lead" data-i18n="proj.bms.lead">
                 大型智慧建築管理系統，涵蓋設備管理、BIM 3D、碳排追蹤、報表、排程、權限與虛擬電錶。是後續平台化與 AI 自動化能力的底座。
               </p>
               <ul class="project-points">
-                <li>覆蓋設備管理、報表、排程告警、權限管理等後台場景。</li>
-                <li>MQTT 雙通道 + WebSocket 支撐毫秒級即時監控推送。</li>
-                <li>整合拓撲、圖表、畫布與 BIM 3D 等五種視覺化引擎。</li>
+                <li data-i18n="proj.bms.p1">覆蓋設備管理、報表、排程告警、權限管理等後台場景。</li>
+                <li data-i18n="proj.bms.p2">MQTT 雙通道 + WebSocket 支撐毫秒級即時監控推送。</li>
+                <li data-i18n="proj.bms.p3">整合拓撲、圖表、畫布與 BIM 3D 等五種視覺化引擎。</li>
               </ul>
               <div class="tag-group">
-                <p class="tag-group-label">使用技術</p>
+                <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                 <div class="tag-list">
                   <span class="tag">Angular 8</span>
                   <span class="tag">TypeScript</span>
@@ -372,14 +374,14 @@
                 </div>
               </div>
               <div class="tag-group">
-                <p class="tag-group-label">功能範圍</p>
+                <p class="tag-group-label" data-i18n="tag.scope">功能範圍</p>
                 <div class="tag-list">
-                  <span class="tag">設備管理</span>
-                  <span class="tag">拓撲編輯</span>
-                  <span class="tag">生產儀表板</span>
-                  <span class="tag">碳排追蹤</span>
-                  <span class="tag">排程告警</span>
-                  <span class="tag">四國語系</span>
+                  <span class="tag" data-i18n="domain.device">設備管理</span>
+                  <span class="tag" data-i18n="domain.topo">拓撲編輯</span>
+                  <span class="tag" data-i18n="domain.dashboard">生產儀表板</span>
+                  <span class="tag" data-i18n="domain.carbon">碳排追蹤</span>
+                  <span class="tag" data-i18n="domain.schedule">排程告警</span>
+                  <span class="tag" data-i18n="domain.i18n">四國語系</span>
                 </div>
               </div>
             </article>
@@ -390,89 +392,141 @@
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="skills.eyebrow">技術武器庫</p>
             <h2 data-i18n="skills.title">技術軍火庫</h2>
-            <p>
+            <p data-i18n="skills.desc">
               核心不是堆疊工具，而是知道每項技術該在什麼層級發揮作用：框架、即時通訊、AI、自動化、品質保證。
             </p>
           </div>
 
           <div class="arsenal-grid">
             <article class="arsenal-card reveal">
-              <h3 data-i18n="skills.logic">邏輯與框架</h3>
+              <h3 data-i18n="skills.framework">框架與語言</h3>
               <div class="skill-meter">
-                <span>Angular 21 / Signals</span>
+                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" class="skill-icon">Angular (8 → 21)</span>
                 <strong>98%</strong>
                 <div><i style="width: 98%"></i></div>
               </div>
               <div class="skill-meter">
-                <span>TypeScript Strict</span>
+                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-icon">TypeScript Strict</span>
                 <strong>95%</strong>
                 <div><i style="width: 95%"></i></div>
               </div>
               <div class="skill-meter">
-                <span>RxJS / Reactive</span>
-                <strong>90%</strong>
-                <div><i style="width: 90%"></i></div>
+                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rxjs/rxjs-original.svg" alt="RxJS" class="skill-icon">RxJS / Signals</span>
+                <strong>92%</strong>
+                <div><i style="width: 92%"></i></div>
               </div>
             </article>
 
             <article class="arsenal-card reveal">
-              <h3 data-i18n="skills.iot">IoT 與整合</h3>
+              <h3 data-i18n="skills.ui">UI 與設計系統</h3>
               <div class="skill-meter">
-                <span>MQTT / WebSocket</span>
-                <strong>92%</strong>
-                <div><i style="width: 92%"></i></div>
+                <span><img src="https://primefaces.org/cdn/primeng/images/primeng-logo-dark.svg" alt="PrimeNG" class="skill-icon">PrimeNG (8 → 21)</span>
+                <strong>93%</strong>
+                <div><i style="width: 93%"></i></div>
               </div>
               <div class="skill-meter">
-                <span>Real-time Visualization</span>
+                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" class="skill-icon">Tailwind / SCSS</span>
+                <strong>90%</strong>
+                <div><i style="width: 90%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" alt="Storybook" class="skill-icon">Storybook + Chromatic</span>
                 <strong>88%</strong>
                 <div><i style="width: 88%"></i></div>
               </div>
             </article>
 
             <article class="arsenal-card reveal">
-              <h3 data-i18n="skills.ai">AI 與前瞻技術</h3>
+              <h3 data-i18n="skills.viz">視覺化與即時通訊</h3>
               <div class="skill-meter">
-                <span>Prompt Engineering</span>
+                <span><svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z" fill="#e43961"/></svg>ECharts / Chart.js</span>
                 <strong>90%</strong>
                 <div><i style="width: 90%"></i></div>
               </div>
               <div class="skill-meter">
-                <span>AI Agent Pipeline</span>
+                <span><svg class="skill-icon" viewBox="0 0 24 24" fill="#ff6347"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="#ff6347" stroke-width="2"/><line x1="3" y1="12" x2="21" y2="12" stroke="#ff6347" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="#ff6347"/><circle cx="16" cy="16" r="2" fill="#ff6347"/></svg>Fabric.js / mxGraph</span>
                 <strong>85%</strong>
                 <div><i style="width: 85%"></i></div>
               </div>
               <div class="skill-meter">
-                <span>MCP Integration</span>
-                <strong>80%</strong>
-                <div><i style="width: 80%"></i></div>
+                <span><svg class="skill-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08s5.97 1.09 6 3.08A7.96 7.96 0 0 1 12 19z" fill="#5ffbd6"/></svg>MQTT / WebSocket</span>
+                <strong>92%</strong>
+                <div><i style="width: 92%"></i></div>
+              </div>
+            </article>
+
+            <article class="arsenal-card reveal">
+              <h3 data-i18n="skills.ai">AI 與自動化</h3>
+              <div class="skill-meter">
+                <span><svg class="skill-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="#74aa9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prompt Engineering</span>
+                <strong>90%</strong>
+                <div><i style="width: 90%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span><svg class="skill-icon" viewBox="0 0 24 24"><circle cx="6" cy="12" r="3" fill="none" stroke="#a78bfa" stroke-width="2"/><circle cx="18" cy="6" r="3" fill="none" stroke="#a78bfa" stroke-width="2"/><circle cx="18" cy="18" r="3" fill="none" stroke="#a78bfa" stroke-width="2"/><line x1="9" y1="11" x2="15" y2="7" stroke="#a78bfa" stroke-width="1.5"/><line x1="9" y1="13" x2="15" y2="17" stroke="#a78bfa" stroke-width="1.5"/></svg>Multi-Agent Pipeline</span>
+                <strong>85%</strong>
+                <div><i style="width: 85%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span><svg class="skill-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>MCP (4 Platforms)</span>
+                <strong>82%</strong>
+                <div><i style="width: 82%"></i></div>
               </div>
             </article>
           </div>
+        </section>
 
-          <div class="highlight-strip reveal">
-            <div>
-              <span class="status-label" data-i18n="skills.advantage">工程優勢</span>
-              <p>跨越 Angular 8 → 21 世代遷移、元件庫治理、設計系統、視覺回歸與 AI 自動化，能在複雜產品中持續保有交付速度與可維護性。</p>
-            </div>
-            <ul class="chip-list">
-              <li>Design System</li>
-              <li>Storybook CI</li>
-              <li>Prompt \u6846\u67b6</li>
-              <li>MCP \u6d41\u7a0b</li>
-            </ul>
+        <section class="section-shell section-alt" id="advantage">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="adv.eyebrow">核心競爭力</p>
+            <h2 data-i18n="skills.advantage">工程優勢</h2>
+            <p data-i18n="adv.intro">十年實戰累積的六項不可替代能力，每一項都來自真實產品線的交付驗證。</p>
+          </div>
+
+          <div class="advantage-grid reveal">
+            <article class="advantage-card">
+              <div class="advantage-icon">⚙</div>
+              <h3 data-i18n="adv.migrate.title">跨世代遷移</h3>
+              <p data-i18n="adv.migrate.desc">獨立完成 Angular 8 → 21 全線升級，涵蓋建構工具、狀態管理與元件 API 三層重寫，零停機切換。</p>
+            </article>
+            <article class="advantage-card">
+              <div class="advantage-icon">📦</div>
+              <h3 data-i18n="adv.lib.title">元件庫治理</h3>
+              <p data-i18n="adv.lib.desc">主導 13 個 @iwa/* 共用套件從設計、封裝、文件到視覺回歸的完整生命週期，供多產品線共用。</p>
+            </article>
+            <article class="advantage-card">
+              <div class="advantage-icon">📊</div>
+              <h3 data-i18n="adv.viz.title">複雜視覺化落地</h3>
+              <p data-i18n="adv.viz.desc">整合 ECharts、Fabric.js、mxGraph、Leaflet 五種引擎，在單一平台同時處理圖表、畫布、拓撲與 GIS。</p>
+            </article>
+            <article class="advantage-card">
+              <div class="advantage-icon">📡</div>
+              <h3 data-i18n="adv.iot.title">IoT 即時架構</h3>
+              <p data-i18n="adv.iot.desc">設計 MQTT 雙通道 + WebSocket 自動重連機制，毫秒級推送穩定運行於生產環境。</p>
+            </article>
+            <article class="advantage-card">
+              <div class="advantage-icon">🤖</div>
+              <h3 data-i18n="adv.ai.title">AI 工程流程化</h3>
+              <p data-i18n="adv.ai.desc">建構 Analysis → Builder → QA 三階段 Pipeline，串接 4 組 MCP，將需求到驗證的週期從天縮短至小時。</p>
+            </article>
+            <article class="advantage-card">
+              <div class="advantage-icon">🛡</div>
+              <h3 data-i18n="adv.qa.title">品質自動化閉環</h3>
+              <p data-i18n="adv.qa.desc">Storybook + Chromatic 視覺回歸、ESLint + Prettier 規範、Jasmine/Jest 單元測試，三道防線確保交付一致性。</p>
+            </article>
           </div>
         </section>
 
         <section class="section-shell contact-shell" id="contact">
           <div class="section-heading reveal section-heading-offset">
             <p class="eyebrow" data-i18n="contact.eyebrow">開始聯絡</p>
-            <h2 data-i18n="contact.title">讓工程能力直接對接產品價值</h2>
-            <p>
+            <h2 class="contact-title-glow" data-i18n="contact.title">讓工程能力直接對接產品價值</h2>
+            <p data-i18n="contact.desc">
               正在尋求具備深厚工程底蘊的前端架構師？如果你的團隊需要處理複雜後台、IoT 即時資料或 AI 驅動開發流程，我可以直接進入設計與交付節奏。
             </p>
           </div>
 
-          <div class="contact-panel reveal glass-panel">
+          <div class="contact-panel reveal glass-panel contact-glow-border">
             <div>
               <p class="status-label" data-i18n="contact.channels">直接管道</p>
               <a class="contact-link" href="mailto:no3111000@gmail.com">no3111000@gmail.com</a>
@@ -481,13 +535,14 @@
                 href="https://www.linkedin.com/in/%E9%99%B3-%E5%8A%9B%E8%B1%AA-7a720969"
                 target="_blank"
                 rel="noreferrer"
+                data-i18n="contact.linkedin"
               >
                 LinkedIn / 陳力豪
               </a>
             </div>
 
             <div class="contact-actions">
-              <button class="button button-primary" id="copy-email" type="button" data-i18n="contact.copy">複製 Email</button>
+              <button class="button button-primary button-pulse" id="copy-email" type="button" data-i18n="contact.copy">複製 Email</button>
               <a class="button button-secondary" href="mailto:no3111000@gmail.com?subject=Frontend%20Architecture%20Inquiry" data-i18n="contact.send">發送詢問</a>
             </div>
           </div>
@@ -495,9 +550,16 @@
       </main>
 
       <footer class="site-footer">
-        <p>© <span id="current-year"></span> LEO_CHEN // <span data-i18n="footer.status">系統狀態：運作中</span></p>
+        <p>© <span id="current-year"></span> DEVIN_CHEN // <span data-i18n="footer.status">系統狀態：運作中</span></p>
       </footer>
     </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+      <button class="lightbox-close" aria-label="Close">✕</button>
+      <img src="" alt="" />
+    </div>
+
+    <button class="scroll-top" id="scroll-top" type="button" aria-label="回到頂部" data-i18n-aria="aria.top">&#8593;</button>
 
     <script src="./script.js"></script>
   </body>
