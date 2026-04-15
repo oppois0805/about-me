@@ -71,7 +71,7 @@ button {
 
 .page-shell {
   position: relative;
-  overflow: clip;
+  overflow-x: clip;
 }
 
 .ambient {
@@ -1434,7 +1434,6 @@ button {
   .site-header {
     align-items: center;
     flex-wrap: nowrap;
-    position: relative;
   }
 
   .brand {
