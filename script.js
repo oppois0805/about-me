@@ -35,6 +35,7 @@ document.querySelectorAll('.tag:not(.tag-link)').forEach((el) => {
 /* ── i18n language toggle ── */
 const i18n = {
   en: {
+    'brand.motto': '＂AI won\'t replace you — it\'ll replace those who don\'t use AI.＂',
     'nav.about': 'About',
     'nav.exp': 'Experience',
     'nav.prod': 'Products',
@@ -169,6 +170,7 @@ const i18n = {
     'aria.console': 'System boot info',
   },
   zh: {
+    'brand.motto': '＂AI不會淘汰你，只會淘汰不會用AI的你＂',
     'nav.about': '關於我',
     'nav.exp': '經歷',
     'nav.prod': '實績',

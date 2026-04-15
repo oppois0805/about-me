@@ -145,6 +145,10 @@ button {
 
 .brand-text small {
   color: var(--text-muted);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
 }
 
 .lang-toggle {
