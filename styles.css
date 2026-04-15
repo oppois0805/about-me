@@ -30,11 +30,7 @@ body {
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(95, 251, 214, 0.14), transparent 28%),
-    radial-gradient(circle at 85% 15%, rgba(56, 222, 187, 0.12), transparent 18%),
-    linear-gradient(180deg, #041329 0%, #08182d 55%, #061224 100%);
-  background-attachment: fixed;
+  background: #041329;
 }
 
 body::before {
@@ -1620,6 +1616,13 @@ button {
   }
 
   .timeline-marker::after {
+    left: -1.74rem;
+    right: auto;
+  }
+
+  .timeline-entry-current .timeline-marker::before,
+  .timeline-entry-current .timeline-marker .ripple-2,
+  .timeline-entry-current .timeline-marker .ripple-3 {
     left: -1.74rem;
     right: auto;
   }
