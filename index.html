@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LEO CHEN | 前端架構師作品集</title>
+    <meta
+      name="description"
+      content="Leo Chen 的前端工程師作品集，聚焦 IoT 智慧建築、Angular 架構、AI Agent Pipeline 與原生工程設計。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+
+      <header class="site-header glass-panel">
+        <a class="brand" href="#top" aria-label="回到頂部">
+          <span class="brand-mark">LC</span>
+          <span class="brand-text">
+            <strong>LEO_CHEN</strong>
+            <small>System Operational</small>
+          </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          Menu
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+          <a href="#about" data-i18n="nav.about">關於我</a>
+          <a href="#experience" data-i18n="nav.exp">經歷</a>
+          <a href="#products" data-i18n="nav.prod">實績</a>
+          <a href="#skills" data-i18n="nav.skills">技能</a>
+          <a href="#contact" data-i18n="nav.contact">聯絡</a>
+        </nav>
+
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="切換語言">
+          <span class="lang-toggle-label">EN</span>
+        </button>
+      </header>
+
+      <main id="top">
+        <section class="hero section-shell" id="about">
+          <div class="hero-copy reveal">
+            <div class="hero-avatar">
+              <img src="./assets/個人頭像.jpg" alt="Leo Chen" width="80" height="80" />
+            </div>
+            <p class="eyebrow" data-i18n="hero.eyebrow">精密介面架構師</p>
+            <h1>
+              <span data-i18n="hero.title">資深 IoT 前端架構師</span>
+              <span data-i18n="hero.subtitle">十年開發深度，先理解原理，再善用工具。</span>
+            </h1>
+            <p class="hero-summary" data-i18n="hero.summary">
+              聚焦 IoT 智慧建築、Angular 架構演進、元件庫治理與 AI Agent Workflow。
+              我把大型平台的複雜度拆成可維護的系統，並將設計、規格與驗證串成真正可落地的工程流程。
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#products" data-i18n="hero.cta1">查看核心系統</a>
+              <a class="button button-secondary" href="#contact" data-i18n="hero.cta2">開始聯絡</a>
+            </div>
+
+            <dl class="hero-metrics" aria-label="關鍵數據">
+              <div class="metric-card">
+                <dt data-i18n="metric.years">年資</dt>
+                <dd><span class="counter" data-target="10">0</span>+</dd>
+              </div>
+              <div class="metric-card">
+                <dt data-i18n="metric.modules">交付模組</dt>
+                <dd><span class="counter" data-target="30">0</span>+</dd>
+              </div>
+              <div class="metric-card">
+                <dt data-i18n="metric.components">共用元件</dt>
+                <dd><span class="counter" data-target="13">0</span>+</dd>
+              </div>
+              <div class="metric-card">
+                <dt data-i18n="metric.mcp">MCP 整合</dt>
+                <dd><span class="counter" data-target="4">0</span></dd>
+              </div>
+            </dl>
+          </div>
+
+          <aside class="hero-console reveal" aria-label="系統啟動資訊">
+            <div class="console-head">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="console-body">
+              <p>$ system init --profile "Leo Chen"</p>
+              <ul>
+                <li>[OK] Angular 21 Architecture</li>
+                <li>[OK] IoT Real-time Stream Engine</li>
+                <li>[OK] AI-Agent Pipeline Integration</li>
+              </ul>
+              <p class="console-prompt">READY: Input Command _</p>
+            </div>
+
+            <div class="status-stack">
+              <article class="status-card">
+                <p class="status-label" data-i18n="status.focus">當前焦點</p>
+                <h2 data-i18n="status.focus.title">AI 驅動前端系統</h2>
+                <p data-i18n="status.focus.desc">Angular 21 + Design System + Multi-Agent Pipeline + MCP 編排。</p>
+              </article>
+              <article class="status-card">
+                <p class="status-label" data-i18n="status.domain">應用領域</p>
+                <h2 data-i18n="status.domain.title">IoT / 智慧建築</h2>
+                <p data-i18n="status.domain.desc">遠端設定、監控、即時資料流與企業級管理後台交付經驗。</p>
+              </article>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section-shell section-alt" id="experience">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="exp.eyebrow">系統演進</p>
+            <h2 data-i18n="exp.title">經歷與職業</h2>
+            <p>
+              從政府資訊系統、前端工程化、IoT 即時平台，到現代 Angular 與 AI workflow，持續把技術棧轉化為穩定可交付的產品能力。
+            </p>
+          </div>
+
+          <div class="timeline-list">
+            <article class="timeline-entry reveal">
+              <div class="timeline-marker">
+                <span class="phase-tag">PHASE_01</span>
+                <p class="timeline-period">2014 - 2016</p>
+              </div>
+              <div class="timeline-card">
+                <h3>政府專案全端開發</h3>
+                <p>
+                  深耕 ASP.NET 與 MSSQL 架構，參與政府級資訊系統建置，建立穩定、合規且可維護的資料管理基礎。
+                </p>
+                <ul class="chip-list">
+                  <li>ASP.NET</li>
+                  <li>MSSQL</li>
+                  <li>C#</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-entry reveal">
+              <div class="timeline-marker">
+                <span class="phase-tag">PHASE_02</span>
+                <p class="timeline-period">2016 - 2018</p>
+              </div>
+              <div class="timeline-card">
+                <h3>前端技術轉型</h3>
+                <p>
+                  轉向前端工程化，導入 SCSS、Vue.js 與 Gulp 自動化流程，從切版走向可維護的前端系統設計。
+                </p>
+                <ul class="chip-list">
+                  <li>Vue.js</li>
+                  <li>SCSS</li>
+                  <li>Gulp</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-entry reveal">
+              <div class="timeline-marker">
+                <span class="phase-tag">PHASE_03</span>
+                <p class="timeline-period">2018 - 2023</p>
+              </div>
+              <div class="timeline-card">
+                <h3>IoT 產業深耕</h3>
+                <p>
+                  以 Angular 8 打造 IWA2 BMS 智慧建築管理系統，跨 20+ 功能模組，整合 MQTT、WebSocket 與多種視覺化引擎，支撐大規模硬體連動與監控場景。
+                </p>
+                <ul class="chip-list">
+                  <li>Angular 8+</li>
+                  <li>MQTT</li>
+                  <li>WebSocket</li>
+                  <li>ECharts</li>
+                  <li>Plotly</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-entry reveal timeline-entry-current">
+              <div class="timeline-marker">
+                <span class="phase-tag">PHASE_04</span>
+                <p class="timeline-period">2024 - Present</p>
+              </div>
+              <div class="timeline-card">
+                <h3>現代化架構與 AI</h3>
+                <p>
+                  擁抱 Angular 21、Signals、Standalone Components 與 AI Agent Pipeline，將 Prompt Engineering、MCP 與自修復流程納入開發治理。
+                </p>
+                <ul class="chip-list">
+                  <li>Angular 21</li>
+                  <li>Signals</li>
+                  <li>AI Agent</li>
+                  <li>MCP</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell" id="products">
+          <div class="section-heading reveal section-heading-offset">
+            <p class="eyebrow" data-i18n="prod.eyebrow">核心系統</p>
+            <h2 data-i18n="prod.title">專案實績</h2>
+            <p>
+              核心能力不在單一頁面，而在於把共用元件、業務模組、設計規格與 AI 工程流程整合成可長期演進的平台。
+            </p>
+          </div>
+
+          <div class="ecosystem-banner reveal">
+            <p class="ecosystem-label">IWA 生態系 — 三個專案協同運作</p>
+            <p class="ecosystem-desc">
+              DDC 裝置管理平台是業務交付的主線，iwa-web-library 提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。
+            </p>
+            <div class="ecosystem-triangle">
+              <div class="ecosystem-triangle-top">
+                <span class="ecosystem-node">frontEnd-harness</span>
+              </div>
+              <div class="ecosystem-triangle-arrows">
+                <span class="ecosystem-arrow">⇅</span>
+                <span class="ecosystem-arrow">⇅</span>
+              </div>
+              <div class="ecosystem-triangle-bottom">
+                <span class="ecosystem-node ecosystem-node-main">DDC 裝置管理平台</span>
+                <span class="ecosystem-arrow">⇄</span>
+                <span class="ecosystem-node">iwa-web-library</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-layout">
+            <article class="project-card reveal project-card-spotlight" id="proj-ddc">
+              <p class="status-label">主力產品線</p>
+              <h3>IWA DDC 裝置管理平台</h3>
+              <div class="project-screenshot">
+                <img src="./assets/ddc.png" alt="DDC 裝置管理平台 — 排程行事曆" loading="lazy" />
+              </div>
+              <p class="project-lead">
+                針對分散式 IoT 硬體進行遠端配置、監控與 AI 自動化邏輯編排。設計 13 個功能子專案，建立四層認證架構與 15+ 驗證器。
+              </p>
+              <ul class="project-points">
+                <li>13 個功能子專案獨立規劃，便於模組化交付與維護。</li>
+                <li>建立四層認證架構，整合 JWT 自動刷新與路由守衛。</li>
+                <li>以 Signals + RxJS + Strict Mode 控制狀態一致性。</li>
+              </ul>
+              <div class="tag-group">
+                <p class="tag-group-label">使用技術</p>
+                <div class="tag-list">
+                  <span class="tag">Angular 21</span>
+                  <span class="tag">TypeScript Strict</span>
+                  <span class="tag">Signals</span>
+                  <span class="tag">RxJS 7.8</span>
+                  <span class="tag">PrimeNG 21</span>
+                  <span class="tag">Tailwind CSS</span>
+                  <span class="tag">JWT</span>
+                  <span class="tag">ECharts</span>
+                </div>
+              </div>
+              <div class="tag-group">
+                <p class="tag-group-label">關聯專案</p>
+                <div class="tag-list">
+                  <a class="tag tag-link" href="#proj-lib">iwa-web-library</a>
+                  <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
+                </div>
+              </div>
+            </article>
+
+            <div class="project-stack">
+              <article class="project-card reveal project-card-secondary" id="proj-lib">
+                <p class="status-label">共用基底</p>
+                <h3>iwa-web-library 共用元件庫</h3>
+                <p class="project-lead">
+                  建立企業級共用元件庫，含 13 個 @iwa/* 元件、雙軌主題系統與視覺回歸測試流程。
+                </p>
+                <ul class="project-points">
+                  <li>統一後台視覺與互動基礎，減少跨專案重複開發。</li>
+                  <li>以 SCSS + Tailwind 雙軌系統管理設計 token。</li>
+                  <li>Storybook + Chromatic 持續驗證元件外觀一致性。</li>
+                </ul>
+                <div class="tag-group">
+                  <p class="tag-group-label">使用技術</p>
+                  <div class="tag-list">
+                    <span class="tag">Angular 21</span>
+                    <span class="tag">PrimeNG 21</span>
+                    <span class="tag">Tailwind CSS 3.4</span>
+                    <span class="tag">SCSS</span>
+                    <span class="tag">ng-packagr</span>
+                    <span class="tag">Storybook 10</span>
+                    <span class="tag">Chromatic</span>
+                    <span class="tag">Compodoc</span>
+                  </div>
+                </div>
+                <div class="tag-group">
+                  <p class="tag-group-label">供給專案</p>
+                  <div class="tag-list">
+                    <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
+                    <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card reveal project-card-secondary" id="proj-harness">
+                <p class="status-label">AI 工程平台</p>
+                <h3>frontEnd-harness 自動化平台</h3>
+                <p class="project-lead">
+                  以 Analysis → Builder → QA 三階段 Pipeline 串接多組 MCP，將需求分析、程式碼生成與品質驗證自動化。
+                </p>
+                <ul class="project-points">
+                  <li>三階段流程支援 Full / Layout / Spec / Analysis 四種模式。</li>
+                  <li>單一源碼輸出 Copilot / Claude / Gemini 多平台格式。</li>
+                  <li>QA 修復閉環最多 2 次迭代，減少人工介入。</li>
+                </ul>
+                <div class="tag-group">
+                  <p class="tag-group-label">使用技術</p>
+                  <div class="tag-list">
+                    <span class="tag">Prompt Engineering</span>
+                    <span class="tag">Multi-Agent Pipeline</span>
+                    <span class="tag">MCP</span>
+                    <span class="tag">Angular CLI MCP</span>
+                    <span class="tag">PrimeNG MCP</span>
+                    <span class="tag">Figma MCP</span>
+                    <span class="tag">Atlassian MCP</span>
+                  </div>
+                </div>
+                <div class="tag-group">
+                  <p class="tag-group-label">驅動專案</p>
+                  <div class="tag-list">
+                    <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
+                    <a class="tag tag-link" href="#proj-lib">iwa-web-library</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <article class="project-card reveal project-card-foundation">
+              <p class="status-label">前代大型系統</p>
+              <h3>IWA2 BMS 智慧建築管理系統</h3>
+              <div class="project-screenshot">
+                <img src="./assets/前代系統.png" alt="IWA2 BMS — 空壓主機流程圖" loading="lazy" />
+              </div>
+              <p class="project-lead">
+                大型智慧建築管理系統，涵蓋設備管理、BIM 3D、碳排追蹤、報表、排程、權限與虛擬電錶。是後續平台化與 AI 自動化能力的底座。
+              </p>
+              <ul class="project-points">
+                <li>覆蓋設備管理、報表、排程告警、權限管理等後台場景。</li>
+                <li>MQTT 雙通道 + WebSocket 支撐毫秒級即時監控推送。</li>
+                <li>整合拓撲、圖表、畫布與 BIM 3D 等五種視覺化引擎。</li>
+              </ul>
+              <div class="tag-group">
+                <p class="tag-group-label">使用技術</p>
+                <div class="tag-list">
+                  <span class="tag">Angular 8</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">RxJS 6</span>
+                  <span class="tag">PrimeNG 8</span>
+                  <span class="tag">Nebular</span>
+                  <span class="tag">MQTT</span>
+                  <span class="tag">WebSocket</span>
+                  <span class="tag">ECharts</span>
+                  <span class="tag">Plotly</span>
+                  <span class="tag">Fabric.js</span>
+                  <span class="tag">mxGraph</span>
+                  <span class="tag">Leaflet</span>
+                </div>
+              </div>
+              <div class="tag-group">
+                <p class="tag-group-label">功能範圍</p>
+                <div class="tag-list">
+                  <span class="tag">設備管理</span>
+                  <span class="tag">拓撲編輯</span>
+                  <span class="tag">生產儀表板</span>
+                  <span class="tag">碳排追蹤</span>
+                  <span class="tag">排程告警</span>
+                  <span class="tag">四國語系</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell section-alt" id="skills">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="skills.eyebrow">技術武器庫</p>
+            <h2 data-i18n="skills.title">技術軍火庫</h2>
+            <p>
+              核心不是堆疊工具，而是知道每項技術該在什麼層級發揮作用：框架、即時通訊、AI、自動化、品質保證。
+            </p>
+          </div>
+
+          <div class="arsenal-grid">
+            <article class="arsenal-card reveal">
+              <h3 data-i18n="skills.logic">邏輯與框架</h3>
+              <div class="skill-meter">
+                <span>Angular 21 / Signals</span>
+                <strong>98%</strong>
+                <div><i style="width: 98%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span>TypeScript Strict</span>
+                <strong>95%</strong>
+                <div><i style="width: 95%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span>RxJS / Reactive</span>
+                <strong>90%</strong>
+                <div><i style="width: 90%"></i></div>
+              </div>
+            </article>
+
+            <article class="arsenal-card reveal">
+              <h3 data-i18n="skills.iot">IoT 與整合</h3>
+              <div class="skill-meter">
+                <span>MQTT / WebSocket</span>
+                <strong>92%</strong>
+                <div><i style="width: 92%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span>Real-time Visualization</span>
+                <strong>88%</strong>
+                <div><i style="width: 88%"></i></div>
+              </div>
+            </article>
+
+            <article class="arsenal-card reveal">
+              <h3 data-i18n="skills.ai">AI 與前瞻技術</h3>
+              <div class="skill-meter">
+                <span>Prompt Engineering</span>
+                <strong>90%</strong>
+                <div><i style="width: 90%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span>AI Agent Pipeline</span>
+                <strong>85%</strong>
+                <div><i style="width: 85%"></i></div>
+              </div>
+              <div class="skill-meter">
+                <span>MCP Integration</span>
+                <strong>80%</strong>
+                <div><i style="width: 80%"></i></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="highlight-strip reveal">
+            <div>
+              <span class="status-label" data-i18n="skills.advantage">工程優勢</span>
+              <p>跨越 Angular 8 → 21 世代遷移、元件庫治理、設計系統、視覺回歸與 AI 自動化，能在複雜產品中持續保有交付速度與可維護性。</p>
+            </div>
+            <ul class="chip-list">
+              <li>Design System</li>
+              <li>Storybook CI</li>
+              <li>Prompt \u6846\u67b6</li>
+              <li>MCP \u6d41\u7a0b</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-shell contact-shell" id="contact">
+          <div class="section-heading reveal section-heading-offset">
+            <p class="eyebrow" data-i18n="contact.eyebrow">開始聯絡</p>
+            <h2 data-i18n="contact.title">讓工程能力直接對接產品價值</h2>
+            <p>
+              正在尋求具備深厚工程底蘊的前端架構師？如果你的團隊需要處理複雜後台、IoT 即時資料或 AI 驅動開發流程，我可以直接進入設計與交付節奏。
+            </p>
+          </div>
+
+          <div class="contact-panel reveal glass-panel">
+            <div>
+              <p class="status-label" data-i18n="contact.channels">直接管道</p>
+              <a class="contact-link" href="mailto:no3111000@gmail.com">no3111000@gmail.com</a>
+              <a
+                class="contact-link contact-link-secondary"
+                href="https://www.linkedin.com/in/%E9%99%B3-%E5%8A%9B%E8%B1%AA-7a720969"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn / 陳力豪
+              </a>
+            </div>
+
+            <div class="contact-actions">
+              <button class="button button-primary" id="copy-email" type="button" data-i18n="contact.copy">複製 Email</button>
+              <a class="button button-secondary" href="mailto:no3111000@gmail.com?subject=Frontend%20Architecture%20Inquiry" data-i18n="contact.send">發送詢問</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>© <span id="current-year"></span> LEO_CHEN // <span data-i18n="footer.status">系統狀態：運作中</span></p>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
