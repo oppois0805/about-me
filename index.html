@@ -219,7 +219,7 @@
           <div class="ecosystem-banner reveal">
             <p class="ecosystem-label" data-i18n="eco.label">IWA 生態系 — 三個專案協同運作</p>
             <p class="ecosystem-desc" data-i18n="eco.desc">
-              DDC 裝置管理平台是業務交付的主線，iwa-web-library 提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。
+              DDC 裝置管理平台是業務交付的主線，library 提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。
             </p>
             <div class="ecosystem-triangle" id="eco-triangle">
               <svg class="eco-svg" id="eco-svg"></svg>
@@ -232,7 +232,7 @@
                 <span class="eco-role" data-i18n="eco.role.ddc">業務主線</span>
               </div>
               <div class="eco-node eco-node-lib" data-eco="lib">
-                <span class="ecosystem-node">iwa-web-library</span>
+                <span class="ecosystem-node">library</span>
                 <span class="eco-role" data-i18n="eco.role.lib">共用基底</span>
               </div>
             </div>
@@ -269,7 +269,7 @@
               <div class="tag-group">
                 <p class="tag-group-label" data-i18n="tag.related">關聯專案</p>
                 <div class="tag-list">
-                  <a class="tag tag-link" href="#proj-lib">iwa-web-library</a>
+                  <a class="tag tag-link" href="#proj-lib">library</a>
                   <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
                 </div>
               </div>
@@ -278,9 +278,9 @@
             <div class="project-stack">
               <article class="project-card reveal project-card-secondary" id="proj-lib">
                 <p class="status-label" data-i18n="proj.lib.status">共用基底</p>
-                <h3 data-i18n="proj.lib.title">iwa-web-library 共用元件庫</h3>
+                <h3 data-i18n="proj.lib.title">library 共用元件庫</h3>
                 <div class="project-screenshot">
-                  <img src="./assets/library.png" alt="iwa-web-library 共用元件庫" data-i18n-alt="proj.lib.alt" loading="lazy" />
+                  <img src="./assets/library.png" alt="library 共用元件庫" data-i18n-alt="proj.lib.alt" loading="lazy" />
                 </div>
                 <p class="project-lead" data-i18n="proj.lib.lead">
                   建立企業級共用元件庫，含 13 個 @iwa/* 元件、雙軌主題系統與視覺回歸測試流程。
@@ -339,11 +339,43 @@
                   <p class="tag-group-label" data-i18n="tag.drives">驅動專案</p>
                   <div class="tag-list">
                     <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
-                    <a class="tag tag-link" href="#proj-lib">iwa-web-library</a>
+                    <a class="tag tag-link" href="#proj-lib">library</a>
                   </div>
                 </div>
               </article>
             </div>
+
+            <article class="project-card reveal project-card-secondary" id="proj-re">
+              <p class="status-label" data-i18n="proj.re.status">開源工具</p>
+              <h3 data-i18n="proj.re.title">reverse-engineer 逆向工程工具包</h3>
+              <p class="project-lead" data-i18n="proj.re.lead">
+                對任意目標專案進行逆向工程分析，7 個 Phase 自動產出完整的 AI Agent Prompt 架構模板（Agents / Skills / Workflows），將團隊的隱性開發知識轉化為可複用的 Prompt Engineering 資源。
+              </p>
+              <ul class="project-points">
+                <li data-i18n="proj.re.p1">7 Phase 流程涵蓋技術堆疊、架構模式、命名慣例與業務領域的全面分析。</li>
+                <li data-i18n="proj.re.p2">分析結果映射為 Agent 角色 / Skill 知識模組 / Workflow 流程，並進行交叉引用驗證。</li>
+                <li data-i18n="proj.re.p3">單一源碼支援 Copilot / Claude / Gemini 多平台格式輸出，附建構工具自動打包。</li>
+              </ul>
+              <div class="tag-group">
+                <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
+                <div class="tag-list">
+                  <span class="tag">Prompt Engineering</span>
+                  <span class="tag">Agent Architecture</span>
+                  <span class="tag">Skill Design</span>
+                  <span class="tag">Workflow Orchestration</span>
+                  <span class="tag">MCP</span>
+                  <span class="tag">TypeScript</span>
+                </div>
+              </div>
+              <div class="tag-group">
+                <p class="tag-group-label" data-i18n="tag.output">產出類型</p>
+                <div class="tag-list">
+                  <span class="tag" data-i18n="re.output.agent">Agent 角色定義</span>
+                  <span class="tag" data-i18n="re.output.skill">Skill 知識模組</span>
+                  <span class="tag" data-i18n="re.output.workflow">Workflow 流程編排</span>
+                </div>
+              </div>
+            </article>
 
             <article class="project-card reveal project-card-foundation">
               <p class="status-label" data-i18n="proj.bms.status">前代大型系統</p>
@@ -516,6 +548,11 @@
               <div class="advantage-icon">🛡</div>
               <h3 data-i18n="adv.qa.title">品質自動化閉環</h3>
               <p data-i18n="adv.qa.desc">Storybook + Chromatic 視覺回歸、ESLint + Prettier 規範、Jasmine/Jest 單元測試，三道防線確保交付一致性。</p>
+            </article>
+            <article class="advantage-card">
+              <div class="advantage-icon">🔬</div>
+              <h3 data-i18n="adv.re.title">逆向工程 Prompt 化</h3>
+              <p data-i18n="adv.re.desc">以 7 Phase 流程對任意專案進行逆向分析，自動產出 Agent / Skill / Workflow 架構模板，將散落在程式碼中的隱性知識轉化為可複用的 AI Prompt 資源。</p>
             </article>
           </div>
         </section>

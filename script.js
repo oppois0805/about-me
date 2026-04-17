@@ -71,7 +71,7 @@ const TAG_CATEGORIES = {
   styling:    ['Tailwind CSS', 'Tailwind CSS 3.4', 'SCSS'],
   realtime:   ['MQTT', 'WebSocket', 'MQTT / WebSocket'],
   viz:        ['ECharts', 'Plotly', 'Fabric.js', 'mxGraph', 'Leaflet'],
-  ai:         ['Prompt Engineering', 'Multi-Agent Pipeline', 'MCP', 'Figma MCP', 'Atlassian MCP', 'AI Agent', 'AI Agent Pipeline'],
+  ai:         ['Prompt Engineering', 'Multi-Agent Pipeline', 'MCP', 'Figma MCP', 'Atlassian MCP', 'AI Agent', 'AI Agent Pipeline', 'Agent Architecture', 'Skill Design', 'Workflow Orchestration'],
   tooling:    ['Storybook 10', 'Chromatic', 'Compodoc', 'ng-packagr', 'JWT', 'Nebular'],
   domain:     ['設備管理', '拓撲編輯', '生產儀表板', '碳排追蹤', '排程告警', '四國語系'],
 };
@@ -149,7 +149,7 @@ const i18n = {
     // Products
     'prod.desc': 'Core competency lies not in individual pages, but in integrating shared components, business modules, design specs, and AI engineering workflows into a long-term evolving platform.',
     'eco.label': 'IWA Ecosystem — Three Projects Working in Synergy',
-    'eco.desc': 'The DDC device management platform is the main business delivery line, iwa-web-library provides shared components and design specs, and frontEnd-harness drives both DDC and library product lines through AI-automated engineering workflows. All three share a common tech foundation.',
+    'eco.desc': 'The DDC device management platform is the main business delivery line, libraryprovides shared components and design specs, and frontEnd-harness drives both DDC and library product lines through AI-automated engineering workflows. All three share a common tech foundation.',
     'eco.role.harness': 'AI-Driven Platform',
     'eco.node.ddc': 'DDC Device Management Platform',
     'eco.role.ddc': 'Business Mainline',
@@ -164,8 +164,8 @@ const i18n = {
     'proj.ddc.p3': 'State consistency controlled via Signals + RxJS + Strict Mode.',
 
     'proj.lib.status': 'Shared Foundation',
-    'proj.lib.title': 'iwa-web-library Shared Component Library',
-    'proj.lib.alt': 'iwa-web-library Shared Component Library',
+    'proj.lib.title': 'libraryShared Component Library',
+    'proj.lib.alt': 'libraryShared Component Library',
     'proj.lib.lead': 'Enterprise-grade shared component library with 13 @iwa/* components, dual-track theming system, and visual regression testing workflow.',
     'proj.lib.p1': 'Unified backend visual and interaction foundation, reducing cross-project redundancy.',
     'proj.lib.p2': 'Dual-track SCSS + Tailwind system for design token management.',
@@ -186,11 +186,23 @@ const i18n = {
     'proj.bms.p2': 'MQTT dual-channel + WebSocket supporting millisecond-level real-time monitoring push.',
     'proj.bms.p3': 'Integrated topology, charts, canvas, and BIM 3D — five visualization engines.',
 
+    'proj.re.status': 'Open Source Tool',
+    'proj.re.title': 'reverse-engineer — AI Prompt Reverse Engineering Toolkit',
+    'proj.re.lead': 'Reverse-engineers any target project through 7 analysis phases, automatically generating complete AI Agent Prompt architecture templates (Agents / Skills / Workflows), transforming hidden development knowledge into reusable Prompt Engineering resources.',
+    'proj.re.p1': '7-phase workflow covering tech stack, architecture patterns, naming conventions, and domain knowledge analysis.',
+    'proj.re.p2': 'Analysis results mapped to Agent roles / Skill knowledge modules / Workflow orchestration with cross-reference validation.',
+    'proj.re.p3': 'Single source output to Copilot / Claude / Gemini multi-platform formats, with automated build tooling.',
+
     'tag.tech': 'Tech Stack',
     'tag.related': 'Related Projects',
     'tag.supply': 'Supplies To',
     'tag.drives': 'Drives Projects',
     'tag.scope': 'Functional Scope',
+    'tag.output': 'Output Types',
+
+    're.output.agent': 'Agent Role Definitions',
+    're.output.skill': 'Skill Knowledge Modules',
+    're.output.workflow': 'Workflow Orchestration',
 
     'domain.device': 'Device Management',
     'domain.topo': 'Topology Editor',
@@ -216,6 +228,8 @@ const i18n = {
     'adv.ai.desc': 'Built Analysis → Builder → QA three-stage Pipeline, connecting 4 MCP sets, shortening the requirement-to-validation cycle from days to hours.',
     'adv.qa.title': 'Quality Automation Loop',
     'adv.qa.desc': 'Storybook + Chromatic visual regression, ESLint + Prettier standards, Jasmine/Jest unit testing — three defense lines ensuring delivery consistency.',
+    'adv.re.title': 'Reverse Engineering to Prompts',
+    'adv.re.desc': 'Using a 7-phase process to reverse-analyze any project, automatically generating Agent / Skill / Workflow templates, turning hidden code knowledge into reusable AI Prompt resources.',
 
     // Aria
     'aria.top': 'Back to top',
@@ -282,7 +296,7 @@ const i18n = {
 
     'prod.desc': '核心能力不在單一頁面，而在於把共用元件、業務模組、設計規格與 AI 工程流程整合成可長期演進的平台。',
     'eco.label': 'IWA 生態系 — 三個專案協同運作',
-    'eco.desc': 'DDC 裝置管理平台是業務交付的主線，iwa-web-library 提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。',
+    'eco.desc': 'DDC 裝置管理平台是業務交付的主線，library提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。',
     'eco.role.harness': 'AI 驅動平台',
     'eco.node.ddc': 'DDC 裝置管理平台',
     'eco.role.ddc': '業務主線',
@@ -297,8 +311,8 @@ const i18n = {
     'proj.ddc.p3': '以 Signals + RxJS + Strict Mode 控制狀態一致性。',
 
     'proj.lib.status': '共用基底',
-    'proj.lib.title': 'iwa-web-library 共用元件庫',
-    'proj.lib.alt': 'iwa-web-library 共用元件庫',
+    'proj.lib.title': 'library 共用元件庫',
+    'proj.lib.alt': 'library 共用元件庫',
     'proj.lib.lead': '建立企業級共用元件庫，含 13 個 @iwa/* 元件、雙軌主題系統與視覺回歸測試流程。',
     'proj.lib.p1': '統一後台視覺與互動基礎，減少跨專案重複開發。',
     'proj.lib.p2': '以 SCSS + Tailwind 雙軌系統管理設計 token。',
@@ -319,11 +333,23 @@ const i18n = {
     'proj.bms.p2': 'MQTT 雙通道 + WebSocket 支撐毫秒級即時監控推送。',
     'proj.bms.p3': '整合拓撲、圖表、畫布與 BIM 3D 等五種視覺化引擎。',
 
+    'proj.re.status': '開源工具',
+    'proj.re.title': 'reverse-engineer 逆向工程工具包',
+    'proj.re.lead': '對任意目標專案進行逆向工程分析，7 個 Phase 自動產出完整的 AI Agent Prompt 架構模板（Agents / Skills / Workflows），將團隊的隱性開發知識轉化為可複用的 Prompt Engineering 資源。',
+    'proj.re.p1': '7 Phase 流程涵蓋技術堆疊、架構模式、命名慣例與業務領域的全面分析。',
+    'proj.re.p2': '分析結果映射為 Agent 角色 / Skill 知識模組 / Workflow 流程，並進行交叉引用驗證。',
+    'proj.re.p3': '單一源碼支援 Copilot / Claude / Gemini 多平台格式輸出，附建構工具自動打包。',
+
     'tag.tech': '使用技術',
     'tag.related': '關聯專案',
     'tag.supply': '供給專案',
     'tag.drives': '驅動專案',
     'tag.scope': '功能範圍',
+    'tag.output': '產出類型',
+
+    're.output.agent': 'Agent 角色定義',
+    're.output.skill': 'Skill 知識模組',
+    're.output.workflow': 'Workflow 流程編排',
 
     'domain.device': '設備管理',
     'domain.topo': '拓撲編輯',
@@ -346,6 +372,8 @@ const i18n = {
     'adv.ai.desc': '建構 Analysis → Builder → QA 三階段 Pipeline，串接 4 組 MCP，將需求到驗證的週期從天縮短至小時。',
     'adv.qa.title': '品質自動化閉環',
     'adv.qa.desc': 'Storybook + Chromatic 視覺回歸、ESLint + Prettier 規範、Jasmine/Jest 單元測試，三道防線確保交付一致性。',
+    'adv.re.title': '逆向工程 Prompt 化',
+    'adv.re.desc': '以 7 Phase 流程對任意專案進行逆向分析，自動產出 Agent / Skill / Workflow 架構模板，將散落在程式碼中的隱性知識轉化為可複用的 AI Prompt 資源。',
 
     'aria.top': '回到頂部',
     'aria.nav': '主要導覽',
