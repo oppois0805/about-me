@@ -24,7 +24,7 @@
       <div class="ambient ambient-one"></div>
       <div class="ambient ambient-two"></div>
 
-      <header class="site-header glass-panel">
+      <header class="site-header">
         <a class="brand" href="#top" aria-label="回到頂部" data-i18n-aria="aria.top">
           <img class="brand-avatar" src="./assets/個人頭像.jpg" alt="Devin Chen" width="36" height="36" />
           <span class="brand-text">
@@ -52,13 +52,7 @@
 
       <main id="top">
         <section class="hero section-shell" id="about">
-          <div class="hero-bg-effects">
-            <div class="hero-glow hero-glow-1"></div>
-            <div class="hero-glow hero-glow-2"></div>
-            <div class="hero-grid-overlay"></div>
-          </div>
           <div class="hero-copy reveal">
-            <p class="eyebrow" data-i18n="hero.eyebrow">精密介面架構師</p>
             <h1>
               <span data-i18n="hero.title">資深 IoT 前端架構師</span>
               <span data-i18n="hero.subtitle">十年開發深度，先理解原理，再善用工具。</span>
@@ -120,7 +114,6 @@
 
         <section class="section-shell section-alt" id="experience">
           <div class="section-heading reveal">
-            <p class="eyebrow" data-i18n="exp.eyebrow">系統演進</p>
             <h2 data-i18n="exp.title">經歷與職業</h2>
             <p data-i18n="exp.desc">
               從政府資訊系統、前端工程化、IoT 即時平台，到現代 Angular 與 AI workflow，持續把技術棧轉化為穩定可交付的產品能力。
@@ -209,7 +202,6 @@
 
         <section class="section-shell" id="products">
           <div class="section-heading reveal section-heading-offset">
-            <p class="eyebrow" data-i18n="prod.eyebrow">核心系統</p>
             <h2 data-i18n="prod.title">專案實績</h2>
             <p data-i18n="prod.desc">
               核心能力不在單一頁面，而在於把共用元件、業務模組、設計規格與 AI 工程流程整合成可長期演進的平台。
@@ -217,7 +209,6 @@
           </div>
 
           <div class="ecosystem-banner reveal">
-            <p class="ecosystem-label" data-i18n="eco.label">IWA 生態系 — 三個專案協同運作</p>
             <p class="ecosystem-desc" data-i18n="eco.desc">
               DDC 裝置管理平台是業務交付的主線，library 提供共用元件與設計規格，frontEnd-harness 以 AI 自動化工程流程同時驅動 DDC 與 library 兩條產品線。三者共享技術底座，彼此串聯。
             </p>
@@ -225,22 +216,18 @@
               <svg class="eco-svg" id="eco-svg"></svg>
               <div class="eco-node eco-node-harness" data-eco="harness">
                 <span class="ecosystem-node">frontEnd-harness</span>
-                <span class="eco-role" data-i18n="eco.role.harness">AI 驅動平台</span>
               </div>
               <div class="eco-node eco-node-ddc" data-eco="ddc">
                 <span class="ecosystem-node ecosystem-node-main" data-i18n="eco.node.ddc">DDC 裝置管理平台</span>
-                <span class="eco-role" data-i18n="eco.role.ddc">業務主線</span>
               </div>
               <div class="eco-node eco-node-lib" data-eco="lib">
                 <span class="ecosystem-node">library</span>
-                <span class="eco-role" data-i18n="eco.role.lib">共用基底</span>
               </div>
             </div>
           </div>
 
           <div class="project-layout">
             <article class="project-card reveal project-card-spotlight" id="proj-ddc">
-              <p class="status-label" data-i18n="proj.ddc.status">主力產品線</p>
               <h3 data-i18n="proj.ddc.title">IWA DDC 裝置管理平台</h3>
               <div class="project-screenshot">
                 <img src="./assets/ddc.png" alt="DDC 裝置管理平台 — 排程行事曆" data-i18n-alt="proj.ddc.alt" loading="lazy" />
@@ -254,7 +241,6 @@
                 <li data-i18n="proj.ddc.p3">以 Signals + RxJS + Strict Mode 控制狀態一致性。</li>
               </ul>
               <div class="tag-group">
-                <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                 <div class="tag-list">
                   <span class="tag">Angular 21</span>
                   <span class="tag">TypeScript Strict</span>
@@ -267,7 +253,6 @@
                 </div>
               </div>
               <div class="tag-group">
-                <p class="tag-group-label" data-i18n="tag.related">關聯專案</p>
                 <div class="tag-list">
                   <a class="tag tag-link" href="#proj-lib">library</a>
                   <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
@@ -277,7 +262,6 @@
 
             <div class="project-stack">
               <article class="project-card reveal project-card-secondary" id="proj-lib">
-                <p class="status-label" data-i18n="proj.lib.status">共用基底</p>
                 <h3 data-i18n="proj.lib.title">library 共用元件庫</h3>
                 <div class="project-screenshot">
                   <img src="./assets/library.png" alt="library 共用元件庫" data-i18n-alt="proj.lib.alt" loading="lazy" />
@@ -291,7 +275,6 @@
                   <li data-i18n="proj.lib.p3">Storybook + Chromatic 持續驗證元件外觀一致性。</li>
                 </ul>
                 <div class="tag-group">
-                  <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                   <div class="tag-list">
                     <span class="tag">Angular 21</span>
                     <span class="tag">PrimeNG 21</span>
@@ -304,7 +287,6 @@
                   </div>
                 </div>
                 <div class="tag-group">
-                  <p class="tag-group-label" data-i18n="tag.supply">供給專案</p>
                   <div class="tag-list">
                     <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
                     <a class="tag tag-link" href="#proj-harness">frontEnd-harness</a>
@@ -313,7 +295,6 @@
               </article>
 
               <article class="project-card reveal project-card-secondary" id="proj-harness">
-                <p class="status-label" data-i18n="proj.harness.status">AI 工程平台</p>
                 <h3 data-i18n="proj.harness.title">frontEnd-harness 自動化平台</h3>
                 <p class="project-lead" data-i18n="proj.harness.lead">
                   以 Analysis → Builder → QA 三階段 Pipeline 串接多組 MCP，將需求分析、程式碼生成與品質驗證自動化。
@@ -324,7 +305,6 @@
                   <li data-i18n="proj.harness.p3">QA 修復閉環最多 2 次迭代，減少人工介入。</li>
                 </ul>
                 <div class="tag-group">
-                  <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                   <div class="tag-list">
                     <span class="tag">Prompt Engineering</span>
                     <span class="tag">Multi-Agent Pipeline</span>
@@ -336,7 +316,6 @@
                   </div>
                 </div>
                 <div class="tag-group">
-                  <p class="tag-group-label" data-i18n="tag.drives">驅動專案</p>
                   <div class="tag-list">
                     <a class="tag tag-link" href="#proj-ddc">DDC 裝置管理平台</a>
                     <a class="tag tag-link" href="#proj-lib">library</a>
@@ -346,7 +325,6 @@
             </div>
 
             <article class="project-card reveal project-card-secondary" id="proj-re">
-              <p class="status-label" data-i18n="proj.re.status">開源工具</p>
               <h3 data-i18n="proj.re.title">reverse-engineer 逆向工程工具包</h3>
               <p class="project-lead" data-i18n="proj.re.lead">
                 對任意目標專案進行逆向工程分析，7 個 Phase 自動產出完整的 AI Agent Prompt 架構模板（Agents / Skills / Workflows），將團隊的隱性開發知識轉化為可複用的 Prompt Engineering 資源。
@@ -357,7 +335,6 @@
                 <li data-i18n="proj.re.p3">單一源碼支援 Copilot / Claude / Gemini 多平台格式輸出，附建構工具自動打包。</li>
               </ul>
               <div class="tag-group">
-                <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                 <div class="tag-list">
                   <span class="tag">Prompt Engineering</span>
                   <span class="tag">Agent Architecture</span>
@@ -368,7 +345,6 @@
                 </div>
               </div>
               <div class="tag-group">
-                <p class="tag-group-label" data-i18n="tag.output">產出類型</p>
                 <div class="tag-list">
                   <span class="tag" data-i18n="re.output.agent">Agent 角色定義</span>
                   <span class="tag" data-i18n="re.output.skill">Skill 知識模組</span>
@@ -378,7 +354,6 @@
             </article>
 
             <article class="project-card reveal project-card-foundation">
-              <p class="status-label" data-i18n="proj.bms.status">前代大型系統</p>
               <h3 data-i18n="proj.bms.title">IWA2 BMS 智慧建築管理系統</h3>
               <div class="project-screenshot">
                 <img src="./assets/前代系統.png" alt="IWA2 BMS — 空壓主機流程圖" data-i18n-alt="proj.bms.alt" loading="lazy" />
@@ -392,7 +367,6 @@
                 <li data-i18n="proj.bms.p3">整合拓撲、圖表、畫布與 BIM 3D 等五種視覺化引擎。</li>
               </ul>
               <div class="tag-group">
-                <p class="tag-group-label" data-i18n="tag.tech">使用技術</p>
                 <div class="tag-list">
                   <span class="tag">Angular 8</span>
                   <span class="tag">TypeScript</span>
@@ -409,7 +383,6 @@
                 </div>
               </div>
               <div class="tag-group">
-                <p class="tag-group-label" data-i18n="tag.scope">功能範圍</p>
                 <div class="tag-list">
                   <span class="tag" data-i18n="domain.device">設備管理</span>
                   <span class="tag" data-i18n="domain.topo">拓撲編輯</span>
@@ -425,7 +398,6 @@
 
         <section class="section-shell section-alt" id="skills">
           <div class="section-heading reveal">
-            <p class="eyebrow" data-i18n="skills.eyebrow">技術武器庫</p>
             <h2 data-i18n="skills.title">技術軍火庫</h2>
             <p data-i18n="skills.desc">
               核心不是堆疊工具，而是知道每項技術該在什麼層級發揮作用：框架、即時通訊、AI、自動化、品質保證。
@@ -513,7 +485,6 @@
 
         <section class="section-shell section-alt" id="advantage">
           <div class="section-heading reveal">
-            <p class="eyebrow" data-i18n="adv.eyebrow">核心競爭力</p>
             <h2 data-i18n="skills.advantage">工程優勢</h2>
             <p data-i18n="adv.intro">十年實戰累積的六項不可替代能力，每一項都來自真實產品線的交付驗證。</p>
           </div>
@@ -559,7 +530,6 @@
 
         <section class="section-shell contact-shell" id="contact">
           <div class="section-heading reveal section-heading-offset">
-            <p class="eyebrow" data-i18n="contact.eyebrow">開始聯絡</p>
             <h2 class="contact-title-glow" data-i18n="contact.title">讓工程能力直接對接產品價值</h2>
             <p data-i18n="contact.desc">
               正在尋求具備深厚工程底蘊的前端架構師？如果你的團隊需要處理複雜後台、IoT 即時資料或 AI 驅動開發流程，我可以直接進入設計與交付節奏。

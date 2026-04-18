@@ -7,28 +7,125 @@
   const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]=/\\';
   const charArr = chars.split('');
   const fontSize = 15;
+  const shield = {
+    x: window.innerWidth * 0.5,
+    y: window.innerHeight * 0.5,
+    targetX: window.innerWidth * 0.5,
+    targetY: window.innerHeight * 0.5,
+    radius: 110,
+    opacity: 0,
+    active: false,
+  };
   let columns;
   let drops;
+  let slideSides;
+  let slideOffsets;
 
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     columns = Math.floor(canvas.width / fontSize);
     drops = Array.from({ length: columns }, () => Math.random() * -100 | 0);
+    slideSides = Array.from({ length: columns }, () => 0);
+    slideOffsets = Array.from({ length: columns }, () => 0);
+    shield.radius = Math.max(56, Math.min(92, canvas.width * 0.058));
+    shield.x = Math.min(shield.x, canvas.width);
+    shield.y = Math.min(shield.y, canvas.height);
+    shield.targetX = Math.min(shield.targetX, canvas.width);
+    shield.targetY = Math.min(shield.targetY, canvas.height);
   }
   resize();
   window.addEventListener('resize', resize);
 
+  function handlePointerMove(event) {
+    shield.targetX = event.clientX;
+    shield.targetY = event.clientY;
+
+    if (!shield.active) {
+      shield.x = shield.targetX;
+      shield.y = shield.targetY;
+    }
+
+    shield.active = true;
+  }
+
+  function handlePointerLeave(event) {
+    if (event.relatedTarget === null) {
+      shield.active = false;
+    }
+  }
+
+  function getShieldBoundaryX(y, side) {
+    const dy = y - shield.y;
+    if (Math.abs(dy) >= shield.radius) return null;
+    return shield.x + side * Math.sqrt(shield.radius * shield.radius - dy * dy);
+  }
+
+  function drawShield() {
+    return;
+  }
+
+  window.addEventListener('pointermove', handlePointerMove, { passive: true });
+  window.addEventListener('pointerout', handlePointerLeave);
+
   function draw() {
     ctx.fillStyle = 'rgba(4, 19, 41, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    shield.x += (shield.targetX - shield.x) * 0.18;
+    shield.y += (shield.targetY - shield.y) * 0.18;
+    shield.opacity += ((shield.active ? 1 : 0) - shield.opacity) * 0.12;
+    drawShield();
 
     for (let i = 0; i < columns; i++) {
       const char = charArr[Math.random() * charArr.length | 0];
       const x = i * fontSize;
-      const y = drops[i] * fontSize;
+      let drawX = x + slideOffsets[i];
+      let y = drops[i] * fontSize;
+      let repelled = false;
 
-      if (Math.random() > 0.5) {
+      if (shield.opacity > 0.03) {
+        const centerX = drawX + fontSize * 0.5;
+        const dy = y - shield.y;
+        const dx = centerX - shield.x;
+        const distance = Math.hypot(dx, dy);
+        const influenceRadius = shield.radius + fontSize * 1.8;
+
+        if (distance < influenceRadius) {
+          if (slideSides[i] === 0) {
+            slideSides[i] = dx === 0 ? (i % 2 === 0 ? -1 : 1) : Math.sign(dx);
+          }
+
+          const side = slideSides[i];
+          const boundaryX = getShieldBoundaryX(y, side);
+          const verticalRatio = Math.min(1, Math.abs(dy) / shield.radius);
+          const margin = fontSize * (0.8 + (1 - verticalRatio) * 0.9);
+          const targetX = boundaryX === null
+            ? shield.x + side * (shield.radius + margin)
+            : boundaryX + side * margin;
+          const targetOffset = targetX - x;
+          const pull = 0.16 + (1 - distance / influenceRadius) * 0.26;
+
+          slideOffsets[i] += (targetOffset - slideOffsets[i]) * pull;
+          repelled = true;
+        }
+      }
+
+      if (!repelled) {
+        slideOffsets[i] += (0 - slideOffsets[i]) * 0.14;
+
+        if (Math.abs(slideOffsets[i]) < 0.2) {
+          slideOffsets[i] = 0;
+          slideSides[i] = 0;
+        }
+      }
+
+      drawX = x + slideOffsets[i];
+
+      if (repelled) {
+        ctx.fillStyle = 'rgba(205, 255, 248, 0.96)';
+        ctx.shadowColor = 'rgba(205, 255, 248, 0.9)';
+        ctx.shadowBlur = 18;
+      } else if (Math.random() > 0.5) {
         ctx.fillStyle = 'rgba(95, 251, 214, 0.96)';
         ctx.shadowColor = '#5ffbd6';
         ctx.shadowBlur = 12;
@@ -39,7 +136,7 @@
       }
 
       ctx.font = fontSize + 'px JetBrains Mono, monospace';
-      ctx.fillText(char, x, y);
+      ctx.fillText(char, drawX, y);
       ctx.shadowBlur = 0;
 
       if (y > canvas.height && Math.random() > 0.98) {
@@ -438,9 +535,50 @@ if (menuToggle && nav) {
   });
 
   navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const href = link.getAttribute('href');
+
       menuToggle.setAttribute('aria-expanded', 'false');
       nav.classList.remove('is-open');
+
+      if (href === '#about') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      /* RAF-based smooth scroll: recalculates target Y each frame
+         so lazy-image layout shifts don't cause a wrong final position. */
+      const getStickyOffset = () => {
+        const stickyTop = parseFloat(getComputedStyle(header).top) || 0;
+        return header.offsetHeight + stickyTop - 80;
+      };
+      const duration = 480;
+      const startY = window.scrollY;
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        const targetY = target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
+        const currentY = startY + (targetY - startY) * ease;
+        window.scrollTo({ top: Math.max(0, currentY), behavior: 'instant' });
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          const finalY = target.getBoundingClientRect().top + window.scrollY - getStickyOffset();
+          window.scrollTo({ top: Math.max(0, finalY), behavior: 'instant' });
+        }
+      };
+      requestAnimationFrame(step);
     });
   });
 }
@@ -459,27 +597,32 @@ const sectionObserver = new IntersectionObserver(
 
 revealItems.forEach((item) => sectionObserver.observe(item));
 
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach((link) => {
-        const active = link.getAttribute('href') === `#${id}`;
-        link.classList.toggle('is-active', active);
-      });
-    });
-  },
-  {
-    threshold: 0.05,
-    rootMargin: '-20% 0px -60% 0px'
+const updateActiveNav = () => {
+  if (!sections.length || !navLinks.length) {
+    return;
   }
-);
 
-sections.forEach((section) => navObserver.observe(section));
+  const headerRect = header
+    ? header.getBoundingClientRect()
+    : { height: 0, top: 0 };
+  const probeY = window.scrollY
+    + Math.max(headerRect.top, 0)
+    + headerRect.height
+    + window.innerHeight * 0.18;
+
+  let activeId = sections[0].id;
+
+  sections.forEach((section) => {
+    if (section.offsetTop <= probeY) {
+      activeId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const active = link.getAttribute('href') === `#${activeId}`;
+    link.classList.toggle('is-active', active);
+  });
+};
 
 const animateCounter = (element) => {
   const target = Number(element.dataset.target || 0);
@@ -656,11 +799,36 @@ if (copyEmailButton) {
 const header = document.querySelector('.site-header');
 const scrollTopBtn = document.getElementById('scroll-top');
 
+const getHeaderScrollOffset = () => {
+  if (!header) {
+    return 92;
+  }
+
+  const stickyTop = parseFloat(getComputedStyle(header).top) || 0;
+  return Math.ceil(stickyTop + header.offsetHeight - 6);
+};
+
+const updateSectionScrollOffset = () => {
+  document.documentElement.style.setProperty(
+    '--section-scroll-offset',
+    `${getHeaderScrollOffset()}px`
+  );
+};
+
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
   if (header) header.classList.toggle('is-sticky', y > 60);
+  updateSectionScrollOffset();
+  updateActiveNav();
   if (scrollTopBtn) scrollTopBtn.classList.toggle('is-visible', y > 400);
 }, { passive: true });
+
+window.addEventListener('resize', updateSectionScrollOffset, { passive: true });
+window.addEventListener('resize', updateActiveNav, { passive: true });
+window.addEventListener('load', updateSectionScrollOffset);
+window.addEventListener('load', updateActiveNav);
+updateSectionScrollOffset();
+updateActiveNav();
 
 if (scrollTopBtn) {
   scrollTopBtn.addEventListener('click', () => {
