@@ -20,6 +20,7 @@
   let drops;
   let slideSides;
   let slideOffsets;
+  let glowIntensity;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -28,6 +29,7 @@
     drops = Array.from({ length: columns }, () => Math.random() * -100 | 0);
     slideSides = Array.from({ length: columns }, () => 0);
     slideOffsets = Array.from({ length: columns }, () => 0);
+    glowIntensity = Array.from({ length: columns }, () => 0);
     shield.radius = Math.max(56, Math.min(92, canvas.width * 0.058));
     shield.x = Math.min(shield.x, canvas.width);
     shield.y = Math.min(shield.y, canvas.height);
@@ -121,18 +123,37 @@
 
       drawX = x + slideOffsets[i];
 
+      /* build / decay glow per column */
       if (repelled) {
-        ctx.fillStyle = 'rgba(205, 255, 248, 0.96)';
-        ctx.shadowColor = 'rgba(205, 255, 248, 0.9)';
-        ctx.shadowBlur = 18;
-      } else if (Math.random() > 0.5) {
-        ctx.fillStyle = 'rgba(95, 251, 214, 0.96)';
-        ctx.shadowColor = '#5ffbd6';
-        ctx.shadowBlur = 12;
+        const centerX = drawX + fontSize * 0.5;
+        const dist = Math.hypot(centerX - shield.x, y - shield.y);
+        const proximity = 1 - Math.min(dist / (shield.radius + fontSize * 1.8), 1);
+        glowIntensity[i] += (proximity - glowIntensity[i]) * 0.5;
       } else {
-        ctx.fillStyle = 'rgba(56, 222, 187, 0.58)';
-        ctx.shadowColor = 'rgba(95, 251, 214, 0.2)';
-        ctx.shadowBlur = 4;
+        glowIntensity[i] *= 0.92;
+        if (glowIntensity[i] < 0.01) glowIntensity[i] = 0;
+      }
+
+      const gi = glowIntensity[i];
+
+      if (gi > 0.15) {
+        /* near shield – intense white with strong bloom */
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.9 + gi * 0.1})`;
+        ctx.shadowColor = `rgba(200, 255, 250, ${0.7 + gi * 0.3})`;
+        ctx.shadowBlur = 18 + gi * 28;
+      } else if (gi > 0.01) {
+        /* afterglow – bright cyan fading out */
+        ctx.fillStyle = `rgba(180, 255, 245, ${Math.min(0.75 + gi * 2.5, 1)})`;
+        ctx.shadowColor = `rgba(95, 251, 214, ${Math.min(gi * 5, 1)})`;
+        ctx.shadowBlur = 8 + gi * 30;
+      } else if (Math.random() > 0.5) {
+        ctx.fillStyle = 'rgba(95, 251, 214, 0.82)';
+        ctx.shadowColor = 'rgba(95, 251, 214, 0.25)';
+        ctx.shadowBlur = 6;
+      } else {
+        ctx.fillStyle = 'rgba(56, 222, 187, 0.55)';
+        ctx.shadowColor = 'rgba(95, 251, 214, 0.08)';
+        ctx.shadowBlur = 2;
       }
 
       ctx.font = fontSize + 'px JetBrains Mono, monospace';
@@ -831,9 +852,12 @@ updateSectionScrollOffset();
 updateActiveNav();
 
 if (scrollTopBtn) {
-  scrollTopBtn.addEventListener('click', () => {
+  const goTop = (e) => {
+    e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  };
+  scrollTopBtn.addEventListener('click', goTop);
+  scrollTopBtn.addEventListener('touchend', goTop);
 }
 
 /* ── Lightbox ── */
