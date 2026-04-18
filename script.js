@@ -6,7 +6,7 @@
 
   const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]=/\\';
   const charArr = chars.split('');
-  const fontSize = 14;
+  const fontSize = 15;
   let columns;
   let drops;
 
@@ -20,7 +20,7 @@
   window.addEventListener('resize', resize);
 
   function draw() {
-    ctx.fillStyle = 'rgba(4, 19, 41, 0.15)';
+    ctx.fillStyle = 'rgba(4, 19, 41, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < columns; i++) {
@@ -28,15 +28,14 @@
       const x = i * fontSize;
       const y = drops[i] * fontSize;
 
-      // head glow
-      if (Math.random() > 0.6) {
-        ctx.fillStyle = 'rgba(95, 251, 214, 0.9)';
+      if (Math.random() > 0.5) {
+        ctx.fillStyle = 'rgba(95, 251, 214, 0.96)';
         ctx.shadowColor = '#5ffbd6';
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 12;
       } else {
-        ctx.fillStyle = 'rgba(56, 222, 187, 0.45)';
-        ctx.shadowColor = 'transparent';
-        ctx.shadowBlur = 0;
+        ctx.fillStyle = 'rgba(56, 222, 187, 0.58)';
+        ctx.shadowColor = 'rgba(95, 251, 214, 0.2)';
+        ctx.shadowBlur = 4;
       }
 
       ctx.font = fontSize + 'px JetBrains Mono, monospace';
