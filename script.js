@@ -123,29 +123,40 @@
 
       drawX = x + slideOffsets[i];
 
-      /* build / decay glow per column */
-      if (repelled) {
+      /* per-character glow: based on actual distance to shield */
+      let gi = 0;
+      if (shield.opacity > 0.03) {
         const centerX = drawX + fontSize * 0.5;
         const dist = Math.hypot(centerX - shield.x, y - shield.y);
-        const proximity = 1 - Math.min(dist / (shield.radius + fontSize * 1.8), 1);
-        glowIntensity[i] += (proximity - glowIntensity[i]) * 0.5;
+        const touchZone = shield.radius + fontSize * 2.5;
+        if (dist < touchZone) {
+          gi = Math.pow(1 - dist / touchZone, 1.5);
+        }
+      }
+      /* blend with column decay for afterglow trail */
+      if (repelled) {
+        glowIntensity[i] = Math.max(glowIntensity[i], gi);
       } else {
-        glowIntensity[i] *= 0.92;
+        glowIntensity[i] *= 0.91;
         if (glowIntensity[i] < 0.01) glowIntensity[i] = 0;
       }
+      gi = Math.max(gi, glowIntensity[i] * 0.6);
 
-      const gi = glowIntensity[i];
-
-      if (gi > 0.15) {
-        /* near shield – intense white with strong bloom */
-        ctx.fillStyle = `rgba(255, 255, 255, ${0.9 + gi * 0.1})`;
-        ctx.shadowColor = `rgba(200, 255, 250, ${0.7 + gi * 0.3})`;
-        ctx.shadowBlur = 18 + gi * 28;
+      if (gi > 0.4) {
+        /* touching shield – pure white, maximum bloom */
+        ctx.fillStyle = `rgba(255, 255, 255, 1)`;
+        ctx.shadowColor = `rgba(220, 255, 252, 1)`;
+        ctx.shadowBlur = 24 + gi * 32;
+      } else if (gi > 0.15) {
+        /* near shield – bright white-cyan */
+        ctx.fillStyle = `rgba(230, 255, 252, ${0.85 + gi})`;
+        ctx.shadowColor = `rgba(200, 255, 250, ${0.5 + gi})`;
+        ctx.shadowBlur = 14 + gi * 28;
       } else if (gi > 0.01) {
-        /* afterglow – bright cyan fading out */
-        ctx.fillStyle = `rgba(180, 255, 245, ${Math.min(0.75 + gi * 2.5, 1)})`;
+        /* afterglow – fading cyan */
+        ctx.fillStyle = `rgba(160, 255, 240, ${Math.min(0.7 + gi * 3, 1)})`;
         ctx.shadowColor = `rgba(95, 251, 214, ${Math.min(gi * 5, 1)})`;
-        ctx.shadowBlur = 8 + gi * 30;
+        ctx.shadowBlur = 6 + gi * 30;
       } else if (Math.random() > 0.5) {
         ctx.fillStyle = 'rgba(95, 251, 214, 0.82)';
         ctx.shadowColor = 'rgba(95, 251, 214, 0.25)';
